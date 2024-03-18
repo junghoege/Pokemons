@@ -113,10 +113,10 @@ for i in range(0, len(st.session_state.pokemons), 3):
     for j in range(len(row_pokemons)):
         with cols[j]:
             pokemon = row_pokemons[j]
-            with st.expander(label=f"**{i+j+1}**"+pokemon["name"], expanded=True):
+            with st.expander(label=f"**{i+j+1}**. pokemon["name"]", expanded=True):
                 st.image(pokemon["image_url"])
                 emoji_types = [f"{type_emoji_dict[x]} {x}" for x in pokemon["types"]]
-                st.subheader(" / ".join(emoji_types))
+                st.text(" / ".join(emoji_types))
                 delete_button = st.button(label="삭제", key=i+j, use_container_width=True)
                 if delete_button:
                     #print("delete button clicked")
